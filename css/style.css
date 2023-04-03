@@ -37,6 +37,7 @@ html {
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -70,6 +71,18 @@ main {
   display: grid;
   grid-template-rows: min-content 1fr;
   gap: 5px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 15px;
+}
+
+.card{
+    border-radius: 5px;
+    padding: 10px;
 }
 
 footer {
