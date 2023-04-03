@@ -7,14 +7,22 @@
 }
 
 :root{
-    --clr-primary-dark: hsl(31, 53%, 10%);
+    --clr-primary-dark: hsl(30, 56%, 30%);
     --clr-primary: hsl(30, 56%, 41%);
     --clr-primary-light: hsl(28, 52%, 95%);
 
     --clr-light: hsl(0, 0%, 98%);
     --clr-semi-light: hsl(0, 0%, 80%);
+    --clr-dark: hsl(31, 53%, 10%);
+
+    --clr-accent-blue: hsl(204, 85%, 70%);
+    --clr-accent-red: hsl(0, 86%, 70%);
+    --clr-accent-green: hsl(108, 60%, 70%);
 
     --fs-large: 3rem;
+    --fs-small: .8rem;
+
+    --fw-bold: 600;
 }
 
 body, html{
@@ -69,7 +77,25 @@ label{
     text-transform: uppercase;
 }
 
+input{
+    padding: .2rem;
+    border: 1px solid var(--clr-semi-light);
+    border-radius: .2rem;
+    outline: none;
+}
+
+input:focus{
+    border-color: var(--clr-accent-blue);
+    box-shadow: 0 0 .1rem var(--clr-semi-light);
+}
+
+input::placeholder{
+    color: var(--clr-semi-light);
+}
+
 .form-wrapper{
+    display: grid;
+    gap: 10px;
     border-radius: 5px;
     padding: 10px;
     height: min-content;
@@ -77,7 +103,35 @@ label{
 
 .form{
     display: grid;
-    gap: 5px;
+    gap: 10px;
+}
+
+.form > button{
+    width: min-content;
+    justify-self: center;
+}
+
+.invalid{
+    border-color: var(--clr-accent-red);
+}
+
+.valid{
+    border-color: var(--clr-accent-green);
+}
+
+/* Buttons */
+
+button{
+    border: none;
+    border-radius: 5px;
+    padding: .5rem;
+    background-color: var(--clr-primary);
+    font-size: inherit;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--clr-primary-dark);
 }
 
 /* Utility classes */
@@ -94,18 +148,34 @@ label{
     background-color: var(--clr-primary-light);
 }
 
-.text-clr-primary-dark{
-    color: var(--clr-primary-dark);
+.text-clr-dark{
+    color: var(--clr-dark);
+}
+
+.text-clr-light{
+    color: var(--clr-light);
+}
+
+.text-clr-accent-red{
+    color: var(--clr-accent-red)
+}
+
+.text-center{
+    text-align: center;
+}
+
+.fs-small{
+    font-size: var(--fs-small);
 }
 
 .fs-large{
     font-size: var(--fs-large);
 }
 
-.box-shadow{
-    box-shadow: 2px 2px .2rem var(--clr-semi-light);
+.fw-bold{
+    font-weight: var(--fw-bold);
 }
 
-.text-center{
-    text-align: center;
+.box-shadow{
+    box-shadow: 2px 2px .2rem var(--clr-semi-light);
 }

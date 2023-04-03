@@ -1,3 +1,6 @@
+// Constants and variables
+const form = document.querySelector(".form");
+
 let library = []
 
 function Book(title, author, pages){
@@ -7,5 +10,8 @@ function Book(title, author, pages){
 }
 
 function addBookToLibrary(){
-    
+
 }
+
+// Listeners
+
