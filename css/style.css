@@ -97,19 +97,27 @@ label {
   text-transform: uppercase;
 }
 
-input {
+textarea {
+  resize: vertical;
+}
+
+input,
+textarea {
   padding: 0.2rem;
   border: 1px solid var(--clr-semi-light);
   border-radius: 0.2rem;
   outline: none;
+  font-family: inherit;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   border-color: var(--clr-accent-blue);
   box-shadow: 0 0 0.1rem var(--clr-semi-light);
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--clr-semi-light);
 }
 
