@@ -14,42 +14,45 @@
   </head>
   <body>
     <div class="container">
-      <header class="bgc-primary box-shadow">
+      <header class="bgc-primary box-shadow text-center">
         <h1 class="fs-large"><i class="fa-solid fa-book"></i> Books</h1>
       </header>
 
       <main class="bgc-primary-light text-clr-dark">
 
-        <div class="cards">
-
+        <div class="main-column">
+          <h2>Books</h2>
+          <div class="cards"></div>
         </div>
         
-        <div class="form-wrapper bgc-light box-shadow">
-          <h2 class="text-center">Add book</h2>
-          <p class="fs-small">Fields with <span class="text-clr-accent-red">*</span> are mandatory.</p>
-          <form class="form">
-            <div class="row">
-              <label for="title">Title <span class="text-clr-accent-red">*</span></label>
-              <input type="text" id="title" name="title" placeholder="Book" data-mode="lazy" required>
-              <p class="fs-small text-clr-accent-red"></p>
-            </div>
-            <div class="row">
-              <label for="author">Author <span class="text-clr-accent-red">*</span></label>
-              <input type="text" id="author" name="author" placeholder="John Doe" data-mode="lazy" required>
-              <p class="fs-small text-clr-accent-red"></p>
-            </div>
-            <div class="row">
-              <label for="title">Pages <span class="text-clr-accent-red">*</span></label>
-              <input type="number" id="pages" name="pages" placeholder="Minimum 1 page" min="1" data-mode="lazy" required>
-              <p class="fs-small text-clr-accent-red"></p>
-            </div>
-            <button class="text-clr-light fw-bold fs-medium" type="submit">Submit</button>
-          </form>
+        <div class="main-column">
+          <h2>Add book</h2>
+          <div class="form-wrapper bgc-light box-shadow">
+            <p class="fs-small">Fields with <span class="text-clr-accent-red">*</span> are mandatory.</p>
+            <form class="form">
+              <div class="row">
+                <label for="title">Title <span class="text-clr-accent-red">*</span></label>
+                <input type="text" id="title" name="title" placeholder="Book" data-mode="lazy" required>
+                <p class="fs-small text-clr-accent-red"></p>
+              </div>
+              <div class="row">
+                <label for="author">Author <span class="text-clr-accent-red">*</span></label>
+                <input type="text" id="author" name="author" placeholder="John Doe" data-mode="lazy" required>
+                <p class="fs-small text-clr-accent-red"></p>
+              </div>
+              <div class="row">
+                <label for="title">Pages <span class="text-clr-accent-red">*</span></label>
+                <input type="number" id="pages" name="pages" placeholder="Minimum 1 page" min="1" data-mode="lazy" required>
+                <p class="fs-small text-clr-accent-red"></p>
+              </div>
+              <button class="text-clr-light fw-bold fs-medium" type="submit">Submit</button>
+            </form>
+          </div>
         </div>
 
       </main>
 
-      <footer class="bgc-primary">
+      <footer class="bgc-primary text-center">
         <p>
           Made by <a class="text-clr-secondary" href="https://github.com/rafallyczek">rafallyczek</a>
         </p>
