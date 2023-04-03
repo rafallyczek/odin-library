@@ -33,6 +33,9 @@ function Book(title, author, pages, description) {
 }
 
 function addBookToLibrary(title, author, pages, description) {
+  if(description === ""){
+    description = "This book has no description.";
+  }
   const book = new Book(title, author, pages, description);
   library.push(book);
   clearBooks();
