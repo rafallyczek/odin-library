@@ -28,10 +28,10 @@ form.addEventListener("focusout", (e) => {
   let mode = e.target.getAttribute("data-mode");
 
   if (mode === "lazy") {
-    if(e.target.id === "pages"){
-        validatePages(e.target);
-    }else{
-        validateText(e.target);
+    if (e.target.id === "pages") {
+      validatePages(e.target);
+    } else {
+      validateText(e.target);
     }
   }
 });
@@ -41,10 +41,10 @@ form.addEventListener("input", (e) => {
   let mode = e.target.getAttribute("data-mode");
 
   if (mode === "aggressive") {
-    if(e.target.id === "pages"){
-        validatePages(e.target);
-    }else{
-        validateText(e.target);
+    if (e.target.id === "pages") {
+      validatePages(e.target);
+    } else {
+      validateText(e.target);
     }
   }
 });
@@ -56,7 +56,7 @@ function validatePages(input) {
   if (!isRequired(input)) {
     setInvalid(input, "This field is required");
     return;
-  }else if(!isLongEnough(input)){
+  } else if (!isLongEnough(input)) {
     setInvalid(input, "Too few pages");
     return;
   }
@@ -64,13 +64,13 @@ function validatePages(input) {
   setValid(input);
 }
 
-function validateText(input){
-    if (!isRequired(input)) {
-        setInvalid(input, "This field is required");
-        return;
-      }
-    
-      setValid(input);
+function validateText(input) {
+  if (!isRequired(input)) {
+    setInvalid(input, "This field is required");
+    return;
+  }
+
+  setValid(input);
 }
 
 //
@@ -85,11 +85,11 @@ function isRequired(input) {
 }
 
 function isLongEnough(input) {
-    if (input.validity.rangeUnderflow) {
-      return false;
-    } else {
-      return true;
-    }
+  if (input.validity.rangeUnderflow) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function setInvalid(input, message) {
