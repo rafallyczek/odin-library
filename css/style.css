@@ -25,6 +25,8 @@
   --fs-small: 0.8rem;
 
   --fw-bold: 600;
+
+  --shadow: 2px 2px 0.2rem var(--clr-semi-light);
 }
 
 body,
@@ -84,6 +86,7 @@ main {
   display: grid;
   grid-template-rows: repeat(3, min-content) 1fr;
   gap: 2px;
+  position: relative;
   border-radius: 5px;
   padding: 10px;
 }
@@ -182,6 +185,20 @@ button:hover {
   background-color: var(--clr-primary-dark);
 }
 
+.delete {
+  background-image: url("../assets/delete.svg");
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--clr-light);
+}
+
+.delete:hover {
+  background-color: var(--clr-light);
+}
+
 /* Utility classes */
 
 .bgc-light {
@@ -225,5 +242,5 @@ button:hover {
 }
 
 .box-shadow {
-  box-shadow: 2px 2px 0.2rem var(--clr-semi-light);
+  box-shadow: var(--shadow);
 }

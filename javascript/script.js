@@ -39,9 +39,16 @@ function addBookToLibrary(title, author, pages, description) {
   displayBooks();
 }
 
+function deleteBookFromLibrary(index) {
+  library.splice(index, 1);
+  clearBooks();
+  displayBooks();
+}
+
 function displayBooks() {
   for (let i = 0; i < library.length; i++) {
     const card = document.createElement("div");
+    const button = document.createElement("button");
     const title = document.createElement("h3");
     const author = document.createElement("p");
     const authorSpan = document.createElement("span");
@@ -54,6 +61,11 @@ function displayBooks() {
     card.classList.add("card");
     card.classList.add("bgc-light");
     card.classList.add("box-shadow");
+
+    button.classList.add("delete");
+    button.addEventListener("click", () => {
+      deleteBookFromLibrary(i);
+    });
 
     title.textContent = library[i].title;
 
@@ -69,10 +81,12 @@ function displayBooks() {
 
     description.textContent = library[i].description;
 
+    card.appendChild(button);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(description);
+    card.setAttribute("data-id", i);
 
     cards.appendChild(card);
   }
