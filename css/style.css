@@ -111,6 +111,23 @@ input::placeholder{
     justify-self: center;
 }
 
+.row > p{
+    visibility: hidden;
+}
+
+.row > p::before{
+    content: '!';
+    background-color: var(--clr-accent-red);
+    display: inline-block;
+    width: 1rem;
+    color: var(--clr-light);
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin: .1rem .1rem 0 0;
+}
+
 .invalid{
     border-color: var(--clr-accent-red);
 }
