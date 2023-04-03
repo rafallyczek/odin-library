@@ -1,9 +1,76 @@
 /* General styles */
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 *, *::after, *::before{
     box-sizing: border-box;
 }
 
-body{
+:root{
+    --clr-primary-dark: hsl(31, 53%, 10%);
+    --clr-primary: hsl(30, 56%, 41%);
+    --clr-primary-light: hsl(28, 52%, 95%);
+
+    --clr-light: hsl(0, 0%, 98%);
+
+    --fs-large: 3rem;
+}
+
+body, html{
     margin: 0;
+    height: 100%;
+    font-family: 'Roboto';
+    color: var(--clr-light);
+}
+
+h1, p{
+    margin: 0;
+}
+
+a{
+    color: var(--clr-light);
+}
+
+/* Layout */
+
+.container{
+    display: grid;
+    grid-template-rows: 100px 1fr 50px;
+    height: 100%;
+}
+
+header{
+    display: grid;
+    align-content: center;
+
+    text-align: center;
+}
+
+main{
+    
+}
+
+footer{
+    display: grid;
+    align-content: center;
+
+    text-align: center;
+}
+
+/* Utility classes */
+
+.bgc-primary{
+    background-color: var(--clr-primary);
+}
+
+.bgc-primary-light{
+    background-color: var(--clr-primary-light);
+}
+
+.text-clr-primary-dark{
+    color: var(--clr-primary-dark);
+}
+
+.fs-large{
+    font-size: var(--fs-large);
 }
