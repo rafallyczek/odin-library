@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.3.0/css/all.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v6.3.0/css/all.css"
+    />
     <script src="./javascript/script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="bgc-primary">
-            <h1 class="fs-large"><i class="fa-solid fa-book"></i> Books</h1>
-        </header>
-        <main class="bgc-primary-light text-clr-primary-dark">
-            Here will be books
-        </main>
-        <footer class="bgc-primary">
-            <p>Made by <a class="text-clr-secondary" href="https://github.com/rafallyczek">rafallyczek</a></p>  
-            <p>Copyright © <a class="text-clr-secondary" href="https://www.theodinproject.com/">The Odin Project</a> 2023</p>
-        </footer>
+      <header class="bgc-primary box-shadow">
+        <h1 class="fs-large"><i class="fa-solid fa-book"></i> Books</h1>
+      </header>
+
+      <main class="bgc-primary-light text-clr-primary-dark">
+
+        <div class="cards">
+
+        </div>
+        
+        <div class="form-wrapper bgc-light box-shadow">
+          <h2 class="text-center">Add book</h2>
+          <form class="form">
+            <div class="row">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title">
+            </div>
+            <div class="row">
+              <label for="author">Author</label>
+              <input type="text" id="author" name="author">
+            </div>
+            <div class="row">
+              <label for="title">Pages</label>
+              <input type="number" id="pages" name="pages">
+            </div>
+          </form>
+        </div>
+
+      </main>
+
+      <footer class="bgc-primary">
+        <p>
+          Made by <a class="text-clr-secondary" href="https://github.com/rafallyczek">rafallyczek</a>
+        </p>
+        <p>
+          Copyright © <a class="text-clr-secondary" href="https://www.theodinproject.com/">The Odin Project</a> 2023
+        </p>
+      </footer>
     </div>
-</body>
+  </body>
 </html>

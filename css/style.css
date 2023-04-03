@@ -12,6 +12,7 @@
     --clr-primary-light: hsl(28, 52%, 95%);
 
     --clr-light: hsl(0, 0%, 98%);
+    --clr-semi-light: hsl(0, 0%, 80%);
 
     --fs-large: 3rem;
 }
@@ -23,7 +24,7 @@ body, html{
     color: var(--clr-light);
 }
 
-h1, p{
+h1, h2, p{
     margin: 0;
 }
 
@@ -42,12 +43,16 @@ a{
 header{
     display: grid;
     align-content: center;
-
+    z-index: 5;
     text-align: center;
 }
 
-main{
-    
+main{   
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    gap: 15px;
+
+    padding: 15px;
 }
 
 footer{
@@ -57,7 +62,29 @@ footer{
     text-align: center;
 }
 
+/* Form */
+
+label{
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+.form-wrapper{
+    border-radius: 5px;
+    padding: 10px;
+    height: min-content;
+}
+
+.form{
+    display: grid;
+    gap: 5px;
+}
+
 /* Utility classes */
+
+.bgc-light{
+    background-color: var(--clr-light);
+}
 
 .bgc-primary{
     background-color: var(--clr-primary);
@@ -73,4 +100,12 @@ footer{
 
 .fs-large{
     font-size: var(--fs-large);
+}
+
+.box-shadow{
+    box-shadow: 2px 2px .2rem var(--clr-semi-light);
+}
+
+.text-center{
+    text-align: center;
 }
