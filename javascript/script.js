@@ -10,30 +10,34 @@ let library = [
     author: "J.R.R.Tolkien",
     pages: 310,
     description: "This book has no description.",
+    read: true,
   },
   {
     title: "The Ravenmaster",
     author: "Christopher Skaife ",
     pages: 256,
     description: "This book has no description.",
+    read: true,
   },
   {
     title: "Clean Code",
     author: "Martin Robert",
     pages: 464,
     description: "This book has no description.",
+    read: false,
   },
 ];
 
-function Book(title, author, pages, description) {
+function Book(title, author, pages, description, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.description = description;
+  this.read = read;
 }
 
 function addBookToLibrary(title, author, pages, description) {
-  if(description === ""){
+  if (description === "") {
     description = "This book has no description.";
   }
   const book = new Book(title, author, pages, description);
@@ -46,6 +50,14 @@ function deleteBookFromLibrary(index) {
   library.splice(index, 1);
   clearBooks();
   displayBooks();
+}
+
+function toggleRead(index){
+  if(library[index].read){
+    library[index].read = false;
+  }else{
+    library[index].read = true;
+  }
 }
 
 function displayBooks() {
@@ -75,6 +87,12 @@ function displayBooks() {
 
     checkbox.type = "checkbox";
     checkbox.id = `toggle${i}`;
+    if(library[i].read){
+      checkbox.checked = true;
+    }
+    checkbox.addEventListener("change", () => {
+      toggleRead(i);
+    });
 
     deleteButton.classList.add("delete");
     deleteButton.addEventListener("click", () => {
