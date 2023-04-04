@@ -51,7 +51,10 @@ function deleteBookFromLibrary(index) {
 function displayBooks() {
   for (let i = 0; i < library.length; i++) {
     const card = document.createElement("div");
-    const button = document.createElement("button");
+    const buttons = document.createElement("div");
+    const deleteButton = document.createElement("button");
+    const checkboxLabel = document.createElement("label");
+    const checkbox = document.createElement("input");
     const title = document.createElement("h3");
     const author = document.createElement("p");
     const authorSpan = document.createElement("span");
@@ -65,10 +68,22 @@ function displayBooks() {
     card.classList.add("bgc-light");
     card.classList.add("box-shadow");
 
-    button.classList.add("delete");
-    button.addEventListener("click", () => {
+    buttons.classList.add("card-buttons");
+
+    checkboxLabel.htmlFor = `toggle${i}`;
+    checkboxLabel.textContent = "Read";
+
+    checkbox.type = "checkbox";
+    checkbox.id = `toggle${i}`;
+
+    deleteButton.classList.add("delete");
+    deleteButton.addEventListener("click", () => {
       deleteBookFromLibrary(i);
     });
+
+    buttons.appendChild(checkboxLabel);
+    buttons.appendChild(checkbox);
+    buttons.appendChild(deleteButton);
 
     title.textContent = library[i].title;
 
@@ -84,7 +99,7 @@ function displayBooks() {
 
     description.textContent = library[i].description;
 
-    card.appendChild(button);
+    card.appendChild(buttons);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);

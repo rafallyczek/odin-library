@@ -15,11 +15,11 @@
 
   --clr-light: hsl(0, 0%, 98%);
   --clr-semi-light: hsl(0, 0%, 80%);
-  --clr-dark: hsl(31, 53%, 10%);
+  --clr-dark: hsl(0, 0%, 27%);
 
   --clr-accent-blue: hsl(204, 85%, 70%);
   --clr-accent-red: hsl(0, 86%, 70%);
-  --clr-accent-green: hsl(108, 60%, 70%);
+  --clr-accent-green: hsl(108, 60%, 50%);
 
   --fs-large: 3rem;
   --fs-small: 0.8rem;
@@ -91,6 +91,14 @@ main {
   padding: 10px;
 }
 
+.card-buttons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 footer {
   display: grid;
   align-content: center;
@@ -107,7 +115,8 @@ textarea {
   resize: vertical;
 }
 
-input,
+input[type="text"],
+input[type="number"],
 textarea {
   padding: 0.2rem;
   border: 1px solid var(--clr-semi-light);
@@ -116,15 +125,52 @@ textarea {
   font-family: inherit;
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
 textarea:focus {
   border-color: var(--clr-accent-blue);
   box-shadow: 0 0 0.1rem var(--clr-semi-light);
 }
 
-input::placeholder,
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
 textarea::placeholder {
   color: var(--clr-semi-light);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  background-color: var(--clr-dark);
+  width: 35px;
+  height: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  background-color: var(--clr-light);
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--clr-accent-green);
+}
+
+input[type="checkbox"]:checked::before {
+  left: 20px;
+}
+
+label[for^="toggle"] {
+  cursor: pointer;
 }
 
 .form-wrapper {
@@ -187,9 +233,6 @@ button:hover {
 
 .delete {
   background-image: url("../assets/delete.svg");
-  position: absolute;
-  top: 5px;
-  right: 5px;
   width: 25px;
   aspect-ratio: 1 / 1;
   background-color: var(--clr-light);
