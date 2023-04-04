@@ -208,11 +208,11 @@ label[for^="toggle"] {
   margin: 0.1rem 0.1rem 0 0;
 }
 
-.invalid {
+input.invalid {
   border-color: var(--clr-accent-red);
 }
 
-.valid {
+input.valid {
   border-color: var(--clr-accent-green);
 }
 
