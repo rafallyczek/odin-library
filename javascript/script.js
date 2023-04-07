@@ -189,6 +189,16 @@ const libraryModule = (() => {
     }
   }
 
+  function _resetInputs(){
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    description.value = "";
+    title.classList.remove("valid");
+    author.classList.remove("valid");
+    pages.classList.remove("valid");
+  }
+
   //Library functions
   function addBookToLibrary(event){
     event.preventDefault();
@@ -197,6 +207,7 @@ const libraryModule = (() => {
     }
     const book = bookFactory(title.value, author.value, pages.value, description.value);
     library.push(book);
+    _resetInputs();
     _displayBooks();
   }
 
