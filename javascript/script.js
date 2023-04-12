@@ -1,6 +1,51 @@
+class Book {
+  constructor(title, author, pages, description, read = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = +pages;
+    this.description = description;
+    this.read = read;
+  }
+}
+
+class Library {
+  constructor(library = []) {
+    this.library = library;
+  }
+
+  addBookToLibrary(book) {
+    this.library.push(book);
+  }
+
+  deleteBookFromLibrary(index) {
+    this.library.splice(index, 1);
+  }
+
+  getLibraryLength(){
+    return this.library.length;
+  }
+
+  toggleRead(index) {
+    if (this.library[index].read) {
+      this.library[index].read = false;
+    } else {
+      this.library[index].read = true;
+    }
+  }
+
+  getBookFromLibrary(index){
+    return this.library[index];
+  }
+
+  getBooks(){
+    return this.library;
+  }
+  
+}
+
 const libraryModule = (() => {
-  const library = [
-      {
+  const library = new Library([
+    {
       title: "Hobbit",
       author: "J.R.R.Tolkien",
       pages: 310,
@@ -21,7 +66,7 @@ const libraryModule = (() => {
       description: "This book has no description.",
       read: false,
     },
-  ];
+  ]);
 
   //DOM
   const form = document.querySelector(".form");
@@ -32,11 +77,23 @@ const libraryModule = (() => {
   const description = document.getElementById("description");
 
   //Listeners
-  form.addEventListener("submit", addBookToLibrary);
+  form.addEventListener("submit", _formHandler);
   form.addEventListener("focusout", _validateForm);
   form.addEventListener("input", _validateForm);
 
   _displayBooks();
+
+  //Form functions
+  function _formHandler(event){
+    event.preventDefault();
+    if(!description.value){
+      description.value = "This book has no description.";
+    }
+    const book = new Book(title.value, author.value, pages.value, description.value);
+    library.addBookToLibrary(book);
+    _resetInputs();
+    _displayBooks();
+  }
 
   function _validateForm(event){
     const eventType = event.type;
@@ -112,9 +169,10 @@ const libraryModule = (() => {
     target.nextElementSibling.style.visibility = "hidden";
   }
 
+  //Display functions
   function _displayBooks() {
     _clearBooks();
-    for (let i = 0; i < library.length; i++) {
+    for (let i = 0; i < library.getLibraryLength(); i++) {
       const card = document.createElement("div");
       const buttons = document.createElement("div");
       const deleteButton = document.createElement("button");
@@ -140,35 +198,36 @@ const libraryModule = (() => {
   
       checkbox.type = "checkbox";
       checkbox.id = `toggle${i}`;
-      if(library[i].read){
+      if(library.getBookFromLibrary(i).read){
         checkbox.checked = true;
       }
       checkbox.addEventListener("change", () => {
-        toggleRead(i);
+        library.toggleRead(i);
       });
   
       deleteButton.classList.add("delete");
       deleteButton.addEventListener("click", () => {
-        deleteBookFromLibrary(i);
+        library.deleteBookFromLibrary(i);
+        _displayBooks();
       });
   
       buttons.appendChild(checkboxLabel);
       buttons.appendChild(checkbox);
       buttons.appendChild(deleteButton);
   
-      title.textContent = library[i].title;
+      title.textContent = library.getBookFromLibrary(i).title;
   
       authorSpan.classList.add("fw-bold");
-      authorSpan.textContent = library[i].author;
+      authorSpan.textContent = library.getBookFromLibrary(i).author;
       author.appendChild(authorText);
       author.appendChild(authorSpan);
   
       pagesSpan.classList.add("fw-bold");
-      pagesSpan.textContent = library[i].pages;
+      pagesSpan.textContent = library.getBookFromLibrary(i).pages;
       pages.appendChild(pagesText);
       pages.appendChild(pagesSpan);
   
-      description.textContent = library[i].description;
+      description.textContent = library.getBookFromLibrary(i).description;
   
       card.appendChild(buttons);
       card.appendChild(title);
@@ -197,36 +256,6 @@ const libraryModule = (() => {
     title.classList.remove("valid");
     author.classList.remove("valid");
     pages.classList.remove("valid");
-  }
-
-  //Library functions
-  function addBookToLibrary(event){
-    event.preventDefault();
-    if(!description.value){
-      description.value = "This book has no description.";
-    }
-    const book = bookFactory(title.value, author.value, pages.value, description.value);
-    library.push(book);
-    _resetInputs();
-    _displayBooks();
-  }
-
-  function deleteBookFromLibrary(index) {
-    library.splice(index, 1);
-    _displayBooks();
-  }
-
-  function toggleRead(index){
-    if(library[index].read){
-      library[index].read = false;
-    }else{
-      library[index].read = true;
-    }
-  }
-
-  //Book object factory
-  function bookFactory(title, author, pages, description, read = false){
-    return { title, author, pages, description, read };
   }
 
 })();
